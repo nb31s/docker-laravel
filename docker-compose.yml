@@ -7,3 +7,13 @@ services:
         - DOCKER_PHP_VERSION=${PHP_VERSION}
     volumes:
       - ./backend:/work
+
+  web:
+    build:
+      context: ./docker/nginx
+      args:
+        - DOCKER_NGINX_VERSION=${NGINX_VERSION}
+    ports:
+      - 10080:80
+    volumes:
+      - ./backend:/work/backend
