@@ -3,11 +3,11 @@ up:
 build:
 	docker-compose build --no-cache --force-rm
 laravel-install:
-	docker-compose exec app composer create-project --prefer-dist laravel/laravel .
+	docker-compose exec app composer create-project --prefer-dist laravel/laravel . ${VERSION}
 create-project:
 	@make build
 	@make up
-	@make laravel-install
+	@make laravel-install VERSION=${VERSION}
 install-recommend-packages:
 	docker-compose exec app composer require doctrine/dbal
 	docker-compose exec app composer require --dev barryvdh/laravel-ide-helper
