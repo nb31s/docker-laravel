@@ -17,3 +17,16 @@ services:
       - 10080:80
     volumes:
       - ./backend:/work/backend
+
+  postgres:
+    build:
+      context: ./docker/postgres
+      args:
+        - DOCKER_POSTGRES_VERSION=${POSTGRES_VERSION}
+        - DOCKER_POSTGRES_DATABASE=${POSTGRES_DATABASE}
+        - DOCKER_POSTGRES_USER=${POSTGRES_USER}
+        - DOCKER_POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+      - ./docker/postgres/pgsql-data:/var/lib/postgresql/data
