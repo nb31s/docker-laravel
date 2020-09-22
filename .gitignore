@@ -1,3 +1,5 @@
+.env
+
 # PhpStorm file
 .idea/*
 .idea/**/workspace.xml
