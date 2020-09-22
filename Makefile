@@ -95,10 +95,8 @@ yarn-hot:
 	docker-compose exec web yarn hot
 db:
 	docker-compose exec db bash
-postgres:
-	docker-compose exec postgres bash
 sql:
-	docker-compose exec postgres bash -c 'psql -U default'
+	docker-compose exec db bash -c 'psql -U default'
 redis:
 	docker-compose exec redis redis-cli
 ide-helper:

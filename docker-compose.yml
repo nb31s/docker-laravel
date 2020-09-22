@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  php-fpm:
+  app:
     build:
       context: ./docker/php-fpm
       args:
@@ -8,7 +8,7 @@ services:
     volumes:
       - ./backend:/work
 
-  nginx:
+  web:
     build:
       context: ./docker/nginx
       args:
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./backend:/work/backend
 
-  postgres:
+  db:
     image: postgres:${POSTGRES_VERSION}-alpine
     environment:
       TZ: UTC
