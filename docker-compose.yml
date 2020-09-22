@@ -16,7 +16,7 @@ services:
     ports:
       - 10080:80
     volumes:
-      - ./backend:/work/backend
+      - ./backend:/work
 
   db:
     image: postgres:${POSTGRES_VERSION}-alpine
