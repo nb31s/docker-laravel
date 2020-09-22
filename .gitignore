@@ -1,5 +1,6 @@
 .env
 docker/postgres/pgsql-data
+docker/redis/data
 
 # PhpStorm file
 .idea/*
