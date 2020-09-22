@@ -1,14 +1,14 @@
 version: "3.8"
 services:
-  app:
+  php-fpm:
     build:
-      context: ./docker/php
+      context: ./docker/php-fpm
       args:
         - DOCKER_PHP_VERSION=${PHP_VERSION}
     volumes:
       - ./backend:/work
 
-  web:
+  nginx:
     build:
       context: ./docker/nginx
       args:
