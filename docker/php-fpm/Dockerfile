@@ -13,6 +13,10 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/* && \
   docker-php-ext-install intl pdo_pgsql zip bcmath
 
+# install xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
 COPY ./php.ini /usr/local/etc/php/php.ini
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 WORKDIR /work
